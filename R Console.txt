@@ -1,0 +1,441 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.82 (8536) aarch64-apple-darwin20]
+
+> getwd()
+[1] "/Users/ramirezbeatriz/Desktop/Bioinf R"
+> getwd()
+[1] "/Users/ramirezbeatriz/Desktop/Bioinf R"
+> t.test(x,mu=10) # lo comparo si la media de mi muestra lo comparo con lo que nos deberia de salir
+Error: object 'x' not found
+> t.test(x,mu=10) # lo comparo si la media de mi muestra lo comparo con lo que nos deberia de salir
+Error: object 'x' not found
+> mean(x)
+Error: object 'x' not found
+> y <- c(1.15, 0.88, 0.90, 0.74, 1.21)
+> mean(y)
+[1] 0.976
+> wilcox.test(x,y,alternative="g")
+Error: object 'x' not found
+> t.test(x,y,var.equal=TRUE)
+Error: object 'x' not found
+> datos_anova <- read.table("anova-datos.txt",sep=" ",header=TRUE)
+> anova <- aov(Vigilancia~Dosis,datos_anova)
+> summary(anova)
+            Df Sum Sq Mean Sq F value  Pr(>F)   
+Dosis        2  426.2  213.12   8.789 0.00298 **
+Residuals   15  363.8   24.25                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> numeric_vector<-c(20,29,24,19,20,22,28,23,19,19)
+> wilcox.test(numeric_vector,mu=20,conf.int=TRUE)
+
+	Wilcoxon signed rank test with continuity correction
+
+data:  numeric_vector
+V = 30, p-value = 0.1056
+alternative hypothesis: true location is not equal to 20
+90 percent confidence interval:
+ 19.00006 25.99999
+sample estimates:
+(pseudo)median 
+      23.00002 
+
+Warning messages:
+1: In wilcox.test.default(numeric_vector, mu = 20, conf.int = TRUE) :
+  requested conf.level not achievable
+2: In wilcox.test.default(numeric_vector, mu = 20, conf.int = TRUE) :
+  cannot compute exact p-value with ties
+3: In wilcox.test.default(numeric_vector, mu = 20, conf.int = TRUE) :
+  cannot compute exact confidence interval with ties
+4: In wilcox.test.default(numeric_vector, mu = 20, conf.int = TRUE) :
+  cannot compute exact p-value with zeroes
+5: In wilcox.test.default(numeric_vector, mu = 20, conf.int = TRUE) :
+  cannot compute exact confidence interval with zeroes
+> x <- c(0.80, 0.83, 1.89, 1.04, 1.45, 1.38, 1.91, 1.64, 0.73, 1.46)
+> mean(x)
+[1] 1.313
+> y <- c(1.15, 0.88, 0.90, 0.74, 1.21)
+> mean(y)
+[1] 0.976
+> wilcox.test(x,y,alternative="g")
+
+	Wilcoxon rank sum exact test
+
+data:  x and y
+W = 35, p-value = 0.1272
+alternative hypothesis: true location shift is greater than 0
+
+> t.test(x,y,var.equal=TRUE)
+
+	Two Sample t-test
+
+data:  x and y
+t = 1.6061, df = 13, p-value = 0.1323
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.1162891  0.7902891
+sample estimates:
+mean of x mean of y 
+    1.313     0.976 
+
+> datos_anova <- read.table("anova-datos.txt",sep=" ",header=TRUE)
+> anova <- aov(Vigilancia~Dosis,datos_anova)
+> summary(anova)
+            Df Sum Sq Mean Sq F value  Pr(>F)   
+Dosis        2  426.2  213.12   8.789 0.00298 **
+Residuals   15  363.8   24.25                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> datos <- data.frame(
++   condicion = c(rep("condicion1", 18), rep("condicion2", 18), rep("condicion3", 18)),
++                19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 25, 36, 37, 58, 59, 60, 71, 72)
+> head(datos)
+   condicion X19 X20 X21 X22 X23 X24 X25 X26 X27 X28 X25.1 X36 X37 X58 X59
+1 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+2 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+3 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+4 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+5 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+6 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+  X60 X71 X72
+1  60  71  72
+2  60  71  72
+3  60  71  72
+4  60  71  72
+5  60  71  72
+6  60  71  72
+> datos_anova <- read.table("anova-datos.txt",sep=" ",header=TRUE)
+> anova <- aov(Vigilancia~Dosis,datos_anova)
+> summary(anova)
+            Df Sum Sq Mean Sq F value  Pr(>F)   
+Dosis        2  426.2  213.12   8.789 0.00298 **
+Residuals   15  363.8   24.25                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+> datos <- data.frame(
++   condicion = c(rep("condicion1", 18), rep("condicion2", 18), rep("condicion3", 18)),
++                19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 25, 36, 37, 58, 59, 60, 71, 72)
+> )
+Error: unexpected ')' in ")"
+> head(datos)
+   condicion X19 X20 X21 X22 X23 X24 X25 X26 X27 X28 X25.1 X36 X37 X58 X59
+1 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+2 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+3 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+4 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+5 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+6 condicion1  19  20  21  22  23  24  25  26  27  28    25  36  37  58  59
+  X60 X71 X72
+1  60  71  72
+2  60  71  72
+3  60  71  72
+4  60  71  72
+5  60  71  72
+6  60  71  72
+> aggregate(n_huevos ~ condicion, data = datos, FUN = median)
+Error in eval(predvars, data, env) : object 'n_huevos' not found
+> aggregate(n_huevos ~ condicion, data = datos, FUN = sd)
+Error in eval(predvars, data, env) : object 'n_huevos' not found
+> kruskal.test(n_huevos ~ condicion, data = datos)
+Error in eval(predvars, data, env) : object 'n_huevos' not found
+> shapiro.test(numeric_vector)
+
+	Shapiro-Wilk normality test
+
+data:  numeric_vector
+W = 0.84135, p-value = 0.04579
+
+> shapiro.test(x)
+
+	Shapiro-Wilk normality test
+
+data:  x
+W = 0.91129, p-value = 0.29
+
+> shapiro.test(y)
+
+	Shapiro-Wilk normality test
+
+data:  y
+W = 0.91538, p-value = 0.5006
+
+> set.seed(100)
+> normaly_disb <- rnorm(100,mean=5,sd=1)
+> shapiro.test(normaly_disb)
+
+	Shapiro-Wilk normality test
+
+data:  normaly_disb
+W = 0.98836, p-value = 0.535
+
+> set.seed(100)
+> not_normaly_disb <- runif(100) #distribución uniforme
+> shapiro.test(not_normaly_disb)
+
+	Shapiro-Wilk normality test
+
+data:  not_normaly_disb
+W = 0.96509, p-value = 0.009436
+
+> x<-rnorm(50)
+> y<-runif(50)
+> ks.test(x,y)
+
+	Exact two-sample Kolmogorov-Smirnov test
+
+data:  x and y
+D = 0.58, p-value = 4.048e-08
+alternative hypothesis: two-sided
+
+> frec<-c(15,19)
+> chisq.test(frec)
+
+	Chi-squared test for given probabilities
+
+data:  frec
+X-squared = 0.47059, df = 1, p-value = 0.4927
+
+> matrix<-matrix(c(4,11,10,13,3,4,6,8),nrow=2)
+> matrix
+     [,1] [,2] [,3] [,4]
+[1,]    4   10    3    6
+[2,]   11   13    4    8
+> chisq.test(matrix)
+
+	Pearson's Chi-squared test
+
+data:  matrix
+X-squared = 1.2845, df = 3, p-value = 0.7328
+
+Warning message:
+In chisq.test(matrix) : Chi-squared approximation may be incorrect
+> var.test(x,y)
+
+	F test to compare two variances
+
+data:  x and y
+F = 19.014, num df = 49, denom df = 49, p-value < 2.2e-16
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 10.79022 33.50696
+sample estimates:
+ratio of variances 
+           19.0144 
+
+> fisher.test(matrix)
+
+	Fisher's Exact Test for Count Data
+
+data:  matrix
+p-value = 0.7229
+alternative hypothesis: two.sided
+
+> install.packages("kableExtra")
+--- Please select a CRAN mirror for use in this session ---
+also installing the dependencies ‘fs’, ‘rappdirs’, ‘cachem’, ‘memoise’, ‘mime’, ‘sass’, ‘evaluate’, ‘highr’, ‘xfun’, ‘yaml’, ‘cli’, ‘glue’, ‘lifecycle’, ‘rlang’, ‘stringi’, ‘vctrs’, ‘bslib’, ‘fontawesome’, ‘jquerylib’, ‘jsonlite’, ‘tinytex’, ‘farver’, ‘labeling’, ‘R6’, ‘RColorBrewer’, ‘base64enc’, ‘fastmap’, ‘systemfonts’, ‘textshaping’, ‘cpp11’, ‘knitr’, ‘magrittr’, ‘stringr’, ‘xml2’, ‘rmarkdown’, ‘scales’, ‘viridisLite’, ‘htmltools’, ‘rstudioapi’, ‘digest’, ‘svglite’
+
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/fs_1.6.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/rappdirs_0.3.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/cachem_1.1.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/memoise_2.0.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/mime_0.13.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/sass_0.4.10.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/evaluate_1.0.5.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/highr_0.11.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/xfun_0.53.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/yaml_2.3.10.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/cli_3.6.5.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/glue_1.8.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/lifecycle_1.0.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/rlang_1.1.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/stringi_1.8.7.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/vctrs_0.6.5.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/bslib_0.9.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/fontawesome_0.5.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/jquerylib_0.1.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/jsonlite_2.0.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/tinytex_0.57.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/farver_2.1.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/labeling_0.4.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/R6_2.6.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/RColorBrewer_1.1-3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/base64enc_0.1-3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/fastmap_1.2.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/systemfonts_1.3.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/textshaping_1.0.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/cpp11_0.5.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/knitr_1.50.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/magrittr_2.0.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/stringr_1.5.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/xml2_1.4.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/rmarkdown_2.30.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/scales_1.4.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/viridisLite_0.4.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/htmltools_0.5.8.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/rstudioapi_0.17.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/digest_0.6.37.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/svglite_2.2.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/kableExtra_1.4.0.tgz'
+
+The downloaded binary packages are in
+	/var/folders/wx/q2y3v40d6b70qd72tfz2byvh0000gn/T//Rtmp93WIFg/downloaded_packages
+> library("kableExtra")
+> library("kableExtra")
+> p_values_estudio_1 <- c(0.11, 0.8, 0.92, 0.68, 0.04, 0.15, 0.89, 0.47, 0.88, 0.85, 0.17, 0.59, 0.4, 0.33, 0.97, 0.48, 0.85, 0.07,0.66, 0.41, 0.64, 0.24, 0.72, 0.004, 0.67, 0.51, 0.26,0.94)
+> p_values_estudio_1 <- c(0.11, 0.8, 0.92, 0.68, 0.04, 0.15, 0.89, 0.47, 0.88, 0.85, 0.17, 0.59, 0.4, 0.33, 0.97, 0.48, 0.85, 0.07,0.66, 0.41, 0.64, 0.24, 0.72, 0.004, 0.67, 0.51, 0.26,0.94)
+> p_values_estudio_1
+ [1] 0.110 0.800 0.920 0.680 0.040 0.150 0.890 0.470 0.880 0.850 0.170 0.590
+[13] 0.400 0.330 0.970 0.480 0.850 0.070 0.660 0.410 0.640 0.240 0.720 0.004
+[25] 0.670 0.510 0.260 0.940
+> n_1 <- length(p_values_estudio_1)
+> sin_correccion_1 <- sum(p_values_estudio_1 <= 0.05)
+> bonferroni_1 <- sum(p.adjust(p =p_values_estudio_1, method="bonferroni") <= 0.05)
+> BH_1 <- sum(p.adjust(p = p_values_estudio_1, method = "BH") <= 0.05)
+> n_1
+[1] 28
+> sin_correccion_1
+[1] 2
+> bonferroni_1
+[1] 0
+> BH_1
+[1] 0
+> kable(data.frame(Numero_de_p.values = n_1, Sin_corrección = sin_correccion_1,
++                  Bonferroni = bonferroni_1, Benjamini_Hochberg = BH_1 ), align="c")
+
+
+| Numero_de_p.values | Sin_corrección | Bonferroni | Benjamini_Hochberg |
+|:------------------:|:--------------:|:----------:|:------------------:|
+|         28         |       2        |     0      |         0          |
+> # Instalar librerías sino lo están ya
+> if(!require("ggplot2")) install.packages("ggplot2",dependencies=TRUE)
+Loading required package: ggplot2
+also installing the dependencies ‘sys’, ‘askpass’, ‘proxy’, ‘lazyeval’, ‘curl’, ‘openssl’, ‘utf8’, ‘checkmate’, ‘zoo’, ‘pkgbuild’, ‘rprojroot’, ‘e1071’, ‘wk’, ‘backports’, ‘generics’, ‘purrr’, ‘tidyr’, ‘rex’, ‘httr’, ‘crayon’, ‘pillar’, ‘tidyselect’, ‘gridExtra’, ‘data.table’, ‘htmlTable’, ‘colorspace’, ‘Formula’, ‘mvtnorm’, ‘TH.data’, ‘sandwich’, ‘htmlwidgets’, ‘SparseM’, ‘MatrixModels’, ‘brew’, ‘commonmark’, ‘desc’, ‘pkgload’, ‘classInt’, ‘DBI’, ‘s2’, ‘units’, ‘Rcpp’, ‘brio’, ‘callr’, ‘praise’, ‘processx’, ‘ps’, ‘waldo’, ‘pkgconfig’, ‘diffobj’, ‘gtable’, ‘isoband’, ‘S7’, ‘withr’, ‘broom’, ‘covr’, ‘dplyr’, ‘ggplot2movies’, ‘hexbin’, ‘Hmisc’, ‘mapproj’, ‘maps’, ‘multcomp’, ‘munsell’, ‘profvis’, ‘quantreg’, ‘ragg’, ‘roxygen2’, ‘sf’, ‘testthat’, ‘tibble’, ‘vdiffr’
+
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/sys_3.4.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/askpass_1.2.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/proxy_0.4-27.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/lazyeval_0.2.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/curl_7.0.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/openssl_2.3.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/utf8_1.2.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/checkmate_2.3.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/zoo_1.8-14.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/pkgbuild_1.4.8.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/rprojroot_2.1.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/e1071_1.7-16.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/wk_0.9.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/backports_1.5.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/generics_0.1.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/purrr_1.1.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/tidyr_1.3.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/rex_1.2.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/httr_1.4.7.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/crayon_1.5.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/pillar_1.11.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/tidyselect_1.2.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/gridExtra_2.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/data.table_1.17.8.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/htmlTable_2.4.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/colorspace_2.1-2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/Formula_1.2-5.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/mvtnorm_1.3-3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/TH.data_1.1-4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/sandwich_3.1-1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/htmlwidgets_1.6.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/SparseM_1.84-2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/MatrixModels_0.5-4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/brew_1.0-10.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/commonmark_2.0.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/desc_1.4.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/pkgload_1.4.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/classInt_0.4-11.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/DBI_1.2.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/s2_1.1.9.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/units_1.0-0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/Rcpp_1.1.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/brio_1.1.5.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/callr_3.7.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/praise_1.0.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/processx_3.8.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/ps_1.9.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/waldo_0.6.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/pkgconfig_2.0.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/diffobj_0.3.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/gtable_0.3.6.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/isoband_0.2.7.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/S7_0.2.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/withr_3.0.2.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/broom_1.0.10.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/covr_3.6.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/dplyr_1.1.4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/ggplot2movies_0.0.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/hexbin_1.28.5.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/Hmisc_5.2-4.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/mapproj_1.2.12.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/maps_3.4.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/multcomp_1.4-28.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/munsell_0.5.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/profvis_0.4.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/quantreg_6.1.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/ragg_1.5.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/roxygen2_7.3.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/sf_1.0-21.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/testthat_3.2.3.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/tibble_3.3.0.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/vdiffr_1.0.8.tgz'
+trying URL 'https://ftp.cixug.es/CRAN/bin/macosx/big-sur-arm64/contrib/4.5/ggplot2_4.0.0.tgz'
+
+The downloaded binary packages are in
+	/var/folders/wx/q2y3v40d6b70qd72tfz2byvh0000gn/T//Rtmp93WIFg/downloaded_packages
+Warning message:
+In library(package, lib.loc = lib.loc, character.only = TRUE, logical.return = TRUE,  :
+  there is no package called ‘ggplot2’
+> if(!require("dplyr")) install.packages("dplyr",dependencies=TRUE)
+Loading required package: dplyr
+
+Attaching package: ‘dplyr’
+
+The following object is masked from ‘package:kableExtra’:
+
+    group_rows
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+> library(ggplot2)
+> library(dplyr)
+> n <- 50
+> glucosa_sanos <- rnorm(n,mean=95,sd=10)
+> glucosa_diabeticos <- rnorm(n,mean=160,sd=20)
+> df_glucosa <- data.frame(glucosa=c(glucosa_sanos,glucosa_diabeticos),grupo = factor(rep(c("Sanos","Diabeticos"),each=n)))
+> ggplot(df_glucosa,aes(x=grupo,y=glucosa,fill=grupo))+
++ geom_boxplot(outlier.color = "red",alpha=0.7) +
++ scale_fill_manual(values=c("#66c2a5","#fc8d62"))+
++ labs(title="Comparación de glucosa en sangre",
++ y="Glucosa(mg(dL)",x="")+
++ theme_minimal(base_size=14)+
++ theme(plot.title=element_text(hjust=0.5))
+> 
